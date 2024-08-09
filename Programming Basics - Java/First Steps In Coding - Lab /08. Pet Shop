@@ -1,0 +1,16 @@
+package Project.project;
+
+import java.util.Scanner;
+
+public class PetShop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double dogFoodQnty = Double.parseDouble(scanner.nextLine());
+        double catFoodQnty = Double.parseDouble(scanner.nextLine());
+        double singleDogFoodPrice = 2.50;
+        double singleCatFoodPrice = 4;
+        double totalPrice =  dogFoodQnty * singleDogFoodPrice  + catFoodQnty * singleCatFoodPrice;
+        System.out.println(totalPrice);
+    }
+}
