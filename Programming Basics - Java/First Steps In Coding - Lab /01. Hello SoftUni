@@ -1,0 +1,8 @@
+import java.util.Scanner;
+
+public class Tests {
+    public static void main(String[] args) {
+        String HelloSoftuni = "Hello SoftUni";
+        System.out.println(HelloSoftuni);
+    }
+}
