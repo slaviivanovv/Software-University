@@ -1,0 +1,17 @@
+package Project.project;
+
+import java.util.Scanner;
+
+public class HelloSlavi {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double squareMetersForGreening = Double.parseDouble(scanner.nextLine());
+        //The price for 1 square meter of greening is 7.61$. We also have 18% discount of the total price
+        double totalSumForGreening = squareMetersForGreening * 7.61;
+        double theDiscountPrice = totalSumForGreening * 0.18;
+        double totalSumWithDiscountOf18Percent = totalSumForGreening - theDiscountPrice;
+        System.out.println("The final price is: " + totalSumWithDiscountOf18Percent);
+        System.out.println("The discount is: " + theDiscountPrice);
+    }
+}
