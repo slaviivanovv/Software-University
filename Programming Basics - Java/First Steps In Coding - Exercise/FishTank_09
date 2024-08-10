@@ -1,0 +1,24 @@
+package VtoriModulZadachi;
+
+import java.util.Scanner;
+
+public class Exercises {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int lenght = Integer.parseInt(scanner.nextLine());
+        int width = Integer.parseInt(scanner.nextLine());
+        int heihgt = Integer.parseInt(scanner.nextLine());
+        double percent = Double.parseDouble(scanner.nextLine());
+
+        double volume = lenght * width * heihgt;
+        double litters = volume / 1000;
+        double zaetoProstranstvo = percent / 100;
+        double littersNeeded = litters * (1 - zaetoProstranstvo);
+        System.out.println(littersNeeded);
+
+    }
+}
+
+
+
