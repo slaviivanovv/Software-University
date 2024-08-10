@@ -1,0 +1,30 @@
+package VtoriModulZadachi;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Exercises {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+
+        double chikenMenu = 10.35;
+        double fishMenu = 12.40;
+        double veganMenu = 8.15;
+        double delivery = 2.50;
+
+        int chikeMenunQnty = Integer.parseInt(scanner.nextLine());
+        int fishMenuQnty = Integer.parseInt(scanner.nextLine());
+        int veganMenuQnty = Integer.parseInt(scanner.nextLine());
+
+        double chiken = chikenMenu * chikeMenunQnty;
+        double fish = fishMenu * fishMenuQnty;
+        double vegan = veganMenu * veganMenuQnty;
+        double price = chiken + fish + vegan;
+        double desert = price * 0.20;
+        double totalPrice = price + desert + delivery;
+        System.out.println(totalPrice);
+
+
+    }
+}
