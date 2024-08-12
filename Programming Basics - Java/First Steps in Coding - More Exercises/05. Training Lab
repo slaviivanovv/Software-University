@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class trainingLab {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double cenaNaSkumriqtaNaKilogram = Double.parseDouble(scanner.nextLine());
+        double cenaNaCacataNaKilogram = Double.parseDouble(scanner.nextLine());
+        double kilogramaPalamud = Double.parseDouble(scanner.nextLine());
+        double kilogramaSafrid = Double.parseDouble(scanner.nextLine());
+        int kilogramaMidi = Integer.parseInt(scanner.nextLine());
+
+        double cenaNaPalamud = cenaNaSkumriqtaNaKilogram + cenaNaSkumriqtaNaKilogram * 0.60;
+        double sumaZaPalamud = kilogramaPalamud * cenaNaPalamud;
+        double cenaZaSafrid = cenaNaCacataNaKilogram + cenaNaCacataNaKilogram * 0.80;
+        double sumaZaSafrid = kilogramaSafrid * cenaZaSafrid;
+        double sumaZaMidi = kilogramaMidi * 7.50;
+        double georgiTotalSumForPayment = sumaZaPalamud + sumaZaSafrid + sumaZaMidi;
+        System.out.printf("%.2f", georgiTotalSumForPayment);
+    }
+}
+
