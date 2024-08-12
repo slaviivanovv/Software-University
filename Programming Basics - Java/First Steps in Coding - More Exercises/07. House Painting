@@ -1,0 +1,33 @@
+package VtoriModulZadachi;
+
+import java.util.Scanner;
+
+public class Exercises {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double x = Double.parseDouble(scanner.nextLine());
+        double y = Double.parseDouble(scanner.nextLine());
+        double h = Double.parseDouble(scanner.nextLine());
+
+        double stranichnaStenaPlosht = x * y;
+        double ploshtNaProzorez = 1.5 * 1.5;
+        double bothSides = 2 * stranichnaStenaPlosht - 2 * ploshtNaProzorez;
+        double zadnaStena = x * x;
+        double enterance = 1.2 * 2;
+        double obshtoPrednaZadna = 2 * zadnaStena - enterance;
+        double obshtaPlosht = bothSides + obshtoPrednaZadna;
+        double greenPaint = obshtaPlosht / 3.4;
+
+        double dvataPravougulnikaPokriv = 2 * (x * y);
+        double dvataTriugulnika = 2 * (x * h / 2);
+        double obshtaPloshtt = dvataPravougulnikaPokriv + dvataTriugulnika;
+        double redPaint = obshtaPloshtt / 4.3;
+
+        System.out.printf("%.2f \n", greenPaint);
+        System.out.printf("%.2f", redPaint);
+    }
+}
+
+
+
