@@ -1,0 +1,28 @@
+package VtoriModulZadachi;
+
+import java.sql.SQLOutput;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Exercises {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //•	Паламуд – 60% по-скъп от скумрията
+        //•	Сафрид – 80% по-скъп от цацата
+        double skumriqKGcena = Double.parseDouble(scanner.nextLine());
+        double cacataKGcena = Double.parseDouble(scanner.nextLine());
+        double palamudKG = Double.parseDouble(scanner.nextLine());
+        double safridKG = Double.parseDouble(scanner.nextLine());
+        int midiKG = Integer.parseInt(scanner.nextLine());
+
+        double palamudKGcena = skumriqKGcena + (skumriqKGcena * 0.60);
+        double palamudKGcenaTotal = palamudKGcena * palamudKG;
+        double safridKGCena = cacataKGcena + (cacataKGcena * 0.80);
+        double safridKGcenaTotal = safridKGCena * safridKG;
+        double midiCena = midiKG * 7.50;
+        double totalPrice = midiCena + safridKGcenaTotal + palamudKGcenaTotal;
+        System.out.printf("%.2f", totalPrice);
+
+    }
+}
