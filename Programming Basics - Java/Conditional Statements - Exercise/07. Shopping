@@ -1,0 +1,44 @@
+package ForLoopAdditionalExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        int video = Integer.parseInt(scanner.nextLine());
+        int processor = Integer.parseInt(scanner.nextLine());
+        int ram = Integer.parseInt(scanner.nextLine());
+
+        double videoQty = 250;
+        double videoPrice = video * videoQty;
+
+        double processorPrice = videoPrice * 0.35;
+        double processorQty = processor * processorPrice;
+
+        double ramPrice = videoPrice * 0.10;
+        double ramQty = ram * ramPrice;
+
+        double totalPrice = videoPrice + processorQty + ramQty;
+
+
+
+        if (video > processor) {
+            totalPrice = totalPrice - (totalPrice * 0.15);
+
+        }
+
+        double diff = Math.abs(budget - totalPrice);
+
+        if (totalPrice <= budget)   {
+            System.out.printf("You have %.2f leva left!", diff);
+        } else {
+            System.out.printf("Not enough money! You need %.2f leva more!", diff);
+        }
+
+    }
+}
+
+
+
