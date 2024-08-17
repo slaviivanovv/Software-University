@@ -1,0 +1,31 @@
+package ConditionalStatementsExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       double filmBudget = Double.parseDouble(scanner.nextLine());
+       int statists = Integer.parseInt(scanner.nextLine());
+       double constumePricePerStatist = Double.parseDouble(scanner.nextLine());
+
+       double decor = filmBudget * 0.10;
+       double constumePriceTotal = constumePricePerStatist * statists;
+
+        if (statists > 150) {
+            constumePriceTotal = constumePriceTotal - ( constumePriceTotal * 0.10);
+        }
+
+        double totalCosts = decor + constumePriceTotal;
+        double diff = Math.abs(filmBudget - totalCosts);
+
+        if (totalCosts > filmBudget) {
+            System.out.printf("Not enough money!\n");
+            System.out.printf("Wingard needs %.2f leva more.", diff);
+        } else {
+            System.out.printf("Action!\n");
+            System.out.printf("Wingard starts filming with %.2f leva left.", diff);
+        }
+    }
+}
