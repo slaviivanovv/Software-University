@@ -1,0 +1,43 @@
+package ConditionalStatementsExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       double puzzlesPrice = 2.60;
+       double dollPrice = 3;
+       double teddyBearPrice = 4.10;
+       double minionPrice = 8.20;
+       double truckPrice = 2;
+
+       double holidayPrice = Double.parseDouble(scanner.nextLine());
+       int puzzlesQnty = Integer.parseInt(scanner.nextLine());
+       int dolesQnty = Integer.parseInt(scanner.nextLine());
+       int teddyBearsQnty = Integer.parseInt(scanner.nextLine());
+       int minionsQnty = Integer.parseInt(scanner.nextLine());
+       int trucksQnty = Integer.parseInt(scanner.nextLine());
+
+       int totalToysQnty = puzzlesQnty + dolesQnty + teddyBearsQnty + minionsQnty + trucksQnty;
+       double totalOrderPrice = (puzzlesQnty * puzzlesPrice) + (dolesQnty * dollPrice) + (teddyBearsQnty * teddyBearPrice) +
+               (minionsQnty * minionPrice) + (trucksQnty * truckPrice);
+
+       if (totalToysQnty >= 50) {
+           totalOrderPrice = totalOrderPrice - (totalOrderPrice * 0.25);
+        }
+
+        double rent = totalOrderPrice * 0.10;
+        totalOrderPrice = totalOrderPrice - rent;
+
+        double diff = Math.abs(totalOrderPrice - holidayPrice);
+
+        if (totalOrderPrice >= holidayPrice) {
+            System.out.printf("Yes! %.2f lv left.", diff);
+        } else {
+            System.out.printf("Not enough money! %.2f lv needed.", diff);
+        }
+
+
+    }
+}
