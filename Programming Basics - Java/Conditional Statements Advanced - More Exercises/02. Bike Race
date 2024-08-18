@@ -1,0 +1,54 @@
+package ConditionalStatementsAdvancedExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int juniors = Integer.parseInt(scanner.nextLine());
+        int seniors = Integer.parseInt(scanner.nextLine());
+        String trail = scanner.nextLine();
+
+        double gatheredAmountJ = 0;
+        double gatheredAmountS = 0;
+        double gatheredAmountTotal = 0;
+        int totalBikers = juniors + seniors;
+
+        switch (trail){
+            case "trail":
+                gatheredAmountJ = juniors * 5.50;
+                gatheredAmountS = seniors * 7;
+                gatheredAmountTotal = gatheredAmountS + gatheredAmountJ;
+                break;
+            case "cross-country":
+                gatheredAmountJ = juniors * 8;
+                gatheredAmountS = seniors * 9.50;
+                gatheredAmountTotal = gatheredAmountS + gatheredAmountJ;
+                break;
+            case "downhill":
+                gatheredAmountJ = juniors * 12.25;
+                gatheredAmountS = seniors * 13.75;
+                gatheredAmountTotal = gatheredAmountS + gatheredAmountJ;
+                break;
+            case "road":
+                gatheredAmountJ = juniors * 20;
+                gatheredAmountS = seniors * 21.50;
+                gatheredAmountTotal = gatheredAmountS + gatheredAmountJ;
+                break;
+        }
+
+        if (trail.equals("cross-country") && totalBikers >= 50){
+            gatheredAmountTotal = gatheredAmountTotal - (gatheredAmountTotal * 0.25);
+        }
+
+        double gatheredAmountAfterTax = gatheredAmountTotal - (gatheredAmountTotal * 0.05);
+
+        System.out.printf("%.2f", gatheredAmountAfterTax);
+
+    }
+}
+
+
+
+
