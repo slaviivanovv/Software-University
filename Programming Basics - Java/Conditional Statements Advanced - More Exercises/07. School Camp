@@ -1,0 +1,167 @@
+package ConditionalStatementsAdvancedMoreExercises;
+
+import java.util.Scanner;
+
+public class SchoolCamp_07 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String season = scanner.nextLine();
+        String studentsGroup = scanner.nextLine();
+        int studentsNumber = Integer.parseInt(scanner.nextLine());
+        int nightsStand = Integer.parseInt(scanner.nextLine());
+
+        double tripTotalPrice = 0;
+
+        switch (season) {
+            case "Spring":
+                if (studentsGroup.equals("girls") || (studentsGroup.equals("boys"))) {
+                    if (studentsNumber < 10){
+                        tripTotalPrice = nightsStand * studentsNumber * 7.20;
+                    } else if (studentsNumber < 20) {
+                        tripTotalPrice = nightsStand * studentsNumber * 7.20;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.05);
+                    } else if (studentsNumber < 50) {
+                        tripTotalPrice = nightsStand * studentsNumber * 7.20;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.15);
+                    } else {
+                        tripTotalPrice = nightsStand * studentsNumber * 7.20;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.50);
+                    }
+                }
+                break;
+
+
+            case "Winter":
+                if (studentsGroup.equals("girls") || (studentsGroup.equals("boys"))) {
+                    if (studentsNumber < 10){
+                        tripTotalPrice = nightsStand * studentsNumber * 9.60;
+                    } else if (studentsNumber < 20) {
+                        tripTotalPrice = nightsStand * studentsNumber * 9.60;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.05);
+                    } else if (studentsNumber < 50) {
+                        tripTotalPrice = nightsStand * studentsNumber * 9.60;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.15);
+                    } else {
+                        tripTotalPrice = nightsStand * studentsNumber * 9.60;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.50);
+                    }
+                }
+                break;
+
+
+            case "Summer":
+                if (studentsGroup.equals("girls") || (studentsGroup.equals("boys"))) {
+                    if (studentsNumber < 10){
+                        tripTotalPrice = nightsStand * studentsNumber * 15;
+                    } else if (studentsNumber < 20) {
+                        tripTotalPrice = nightsStand * studentsNumber * 15;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.05);
+                    } else if (studentsNumber < 50) {
+                        tripTotalPrice = nightsStand * studentsNumber * 15;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.15);
+                    } else {
+                        tripTotalPrice = nightsStand * studentsNumber * 15;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.50);
+                    }
+                }
+                break;
+        }
+
+
+        switch (season) {
+            case "Spring":
+                if (studentsGroup.equals("mixed")) {
+                    if (studentsNumber < 10){
+                        tripTotalPrice = nightsStand * studentsNumber * 9.50;
+                    } else if (studentsNumber < 20) {
+                        tripTotalPrice = nightsStand * studentsNumber * 9.50;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.05);
+                    } else if (studentsNumber < 50) {
+                        tripTotalPrice = nightsStand * studentsNumber * 9.50;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.15);
+                    } else {
+                        tripTotalPrice = nightsStand * studentsNumber * 9.50;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.50);
+                    }
+                }
+                break;
+
+
+            case "Winter":
+                if (studentsGroup.equals("mixed")) {
+                    if (studentsNumber < 10){
+                        tripTotalPrice = nightsStand * studentsNumber * 10;
+                    } else if (studentsNumber < 20) {
+                        tripTotalPrice = nightsStand * studentsNumber * 10;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.05);
+                    } else if (studentsNumber < 50) {
+                        tripTotalPrice = nightsStand * studentsNumber * 10;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.15);
+                    } else {
+                        tripTotalPrice = nightsStand * studentsNumber * 10;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.50);
+                    }
+                }
+                break;
+
+
+            case "Summer":
+                if (studentsGroup.equals("mixed")) {
+                    if (studentsNumber < 10){
+                        tripTotalPrice = nightsStand * studentsNumber * 20;
+                    } else if (studentsNumber < 20) {
+                        tripTotalPrice = nightsStand * 20 * studentsNumber;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.05);
+                    } else if (studentsNumber < 50) {
+                        tripTotalPrice = nightsStand * 20 * studentsNumber;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.15);
+                    } else {
+                        tripTotalPrice = nightsStand * 20 * studentsNumber;
+                        tripTotalPrice = tripTotalPrice - (tripTotalPrice * 0.50);
+                    }
+                }
+                break;
+        }
+
+        if (studentsGroup.equals("girls")) {
+            switch (season) {
+                case "Winter":
+                    System.out.printf("Gymnastics %.2f lv.", tripTotalPrice);
+                    break;
+                case "Spring":
+                    System.out.printf("Athletics %.2f lv.", tripTotalPrice);
+                    break;
+                case "Summer":
+                    System.out.printf("Volleyball %.2f lv.", tripTotalPrice);
+                    break;
+            }
+        } else if (studentsGroup.equals("boys")) {
+            switch (season) {
+                case "Winter":
+                    System.out.printf("Judo %.2f lv.", tripTotalPrice);
+                    break;
+                case "Spring":
+                    System.out.printf("Tennis %.2f lv.", tripTotalPrice);
+                    break;
+                case "Summer":
+                    System.out.printf("Football %.2f lv.", tripTotalPrice);
+                    break;
+            }
+        } else if (studentsGroup.equals("mixed")) {
+            switch (season) {
+                case "Winter":
+                    System.out.printf("Ski %.2f lv.", tripTotalPrice);
+                    break;
+                case "Spring":
+                    System.out.printf("Cycling %.2f lv.", tripTotalPrice);
+                    break;
+                case "Summer":
+                    System.out.printf("Swimming %.2f lv.", tripTotalPrice);
+                    break;
+            }
+        }
+
+
+    }
+}
