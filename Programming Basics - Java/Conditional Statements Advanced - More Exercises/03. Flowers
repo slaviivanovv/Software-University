@@ -1,0 +1,61 @@
+package ConditionalStatementsAdvancedExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int chrysanthemums = Integer.parseInt(scanner.nextLine());
+        int roses = Integer.parseInt(scanner.nextLine());
+        int tulips = Integer.parseInt(scanner.nextLine());
+        String season = scanner.nextLine();
+        String holiday = scanner.nextLine();
+
+        double boughtChrysanthemums = 0;
+        double boughtRoses = 0;
+        double boughtTulips = 0;
+
+        switch (season) {
+            case "Spring", "Summer":
+                boughtChrysanthemums = chrysanthemums * 2;
+                boughtRoses = roses * 4.10;
+                boughtTulips = tulips * 2.50;
+                break;
+
+            case "Autumn", "Winter":
+                boughtChrysanthemums = chrysanthemums * 3.75;
+                boughtRoses = roses * 4.50;
+                boughtTulips = tulips * 4.15;
+                break;
+        }
+
+        double totalBuketPrice = boughtChrysanthemums + boughtRoses + boughtTulips;
+
+
+        if (holiday.equals("Y")) {
+            totalBuketPrice = totalBuketPrice + (totalBuketPrice * 0.15);
+        }
+
+
+        if (season.equals("Spring") && boughtTulips > 7) {
+            totalBuketPrice = totalBuketPrice - (totalBuketPrice * 0.05);
+        }
+
+        if (season.equals("Winter") && roses >= 10) {
+            totalBuketPrice = totalBuketPrice - (totalBuketPrice * 0.10);
+        }
+
+        int totalFlowers = chrysanthemums + roses + tulips;
+
+        if (totalFlowers > 20) {
+            totalBuketPrice = totalBuketPrice - (totalBuketPrice * 0.20);
+        }
+        
+        System.out.printf("%.2f", totalBuketPrice + 2);
+    }
+}
+
+
+
+
