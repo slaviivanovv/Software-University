@@ -1,0 +1,54 @@
+package ConditionalStatementsAdvancedMoreExercises;
+
+import java.util.Scanner;
+
+public class Vaction_05 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        String season = scanner.nextLine();
+
+        String location = "";
+        String place = "";
+        double tripPrice = 0;
+
+
+        if (budget <= 1000) {
+            if (season.equals("Summer")) {
+                location = "Alaska";
+                place = "Camp";
+                tripPrice = budget - (budget * 0.35);
+            } else {
+                location = "Morocco";
+                place = "Camp";
+                tripPrice = budget - (budget * 0.55);
+            }
+        } else if (budget > 1000 && budget <= 3000) {
+            if (season.equals("Summer")) {
+                location = "Alaska";
+                place = "Hut";
+                tripPrice = budget - (budget * 0.20);
+            } else {
+                location = "Morocco";
+                place = "Hut";
+                tripPrice = budget - (budget * 0.40);
+            }
+        } else if (budget > 3000) {
+            if (season.equals("Summer")) {
+                location = "Alaska";
+                place = "Hotel";
+                tripPrice = budget - (budget * 0.10);
+            } else {
+                location = "Morocco";
+                place = "Hotel";
+                tripPrice = budget - (budget * 0.10);
+            }
+        }
+
+        System.out.printf("%s - %s - %.2f", location, place, tripPrice);
+
+
+    }
+}
