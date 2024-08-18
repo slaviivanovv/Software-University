@@ -1,0 +1,56 @@
+package ConditionalStatementsAdvancedMoreExercises;
+
+import java.util.Scanner;
+
+public class TruckDriver_06 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String season = scanner.nextLine();
+        double kmPerMonth = Double.parseDouble(scanner.nextLine());
+
+        double earningsPerMonth = 0;
+        double seasonEarnings = 0;
+
+        if (kmPerMonth <= 5000) {
+            if (season.equals("Spring") || (season.equals("Autumn"))) {
+                earningsPerMonth = kmPerMonth * 0.75;
+                seasonEarnings = earningsPerMonth * 4;
+            } else if (season.equals("Summer")) {
+                earningsPerMonth = kmPerMonth * 0.90;
+                seasonEarnings = earningsPerMonth * 4;
+            } else if (season.equals("Winter")) {
+                earningsPerMonth = kmPerMonth * 1.05;
+                seasonEarnings = earningsPerMonth * 4;
+            }
+        }
+
+        if (kmPerMonth > 5000 && kmPerMonth <= 10000) {
+            if (season.equals("Spring") || (season.equals("Autumn"))) {
+                earningsPerMonth = kmPerMonth * 0.95;
+                seasonEarnings = earningsPerMonth * 4;
+            } else if (season.equals("Summer")) {
+                earningsPerMonth = kmPerMonth * 1.10;
+                seasonEarnings = earningsPerMonth * 4;
+            } else if (season.equals("Winter")) {
+                earningsPerMonth = kmPerMonth * 1.25;
+                seasonEarnings = earningsPerMonth * 4;
+            }
+        }
+
+        if (kmPerMonth > 10000){
+            earningsPerMonth = kmPerMonth * 1.45;
+            seasonEarnings = earningsPerMonth * 4;
+        }
+
+
+        double seasonEarningsAfterTax = 0;
+        seasonEarningsAfterTax = seasonEarnings - (seasonEarnings * 0.10);
+
+
+        System.out.printf("%.2f", seasonEarningsAfterTax);
+
+
+
+    }
+}
