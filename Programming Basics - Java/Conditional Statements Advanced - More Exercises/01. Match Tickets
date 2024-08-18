@@ -1,0 +1,48 @@
+package ConditionalStatementsAdvancedExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        String ticketType = scanner.nextLine();
+        int peopleNumber = Integer.parseInt(scanner.nextLine());
+
+        double transportBudget = 0;
+        double ticketPrice = 0;
+        double totalExpenses = 0;
+        double difference = 0;
+
+        if (peopleNumber >= 1 && peopleNumber <= 4) {
+            transportBudget = budget * 0.75;
+        } else if (peopleNumber >= 5 && peopleNumber <= 9) {
+            transportBudget = budget * 0.60;
+        } else if (peopleNumber >= 10 && peopleNumber <= 24) {
+            transportBudget = budget * 0.50;
+        } else if (peopleNumber >= 25 && peopleNumber <= 49) {
+            transportBudget = budget * 0.40;
+        } else if (peopleNumber >= 50) {
+            transportBudget = budget * 0.25;
+        }
+
+        if (ticketType.equals("VIP")) {
+            ticketPrice = peopleNumber * 499.99;
+        } else if (ticketType.equals("Normal")) {
+            ticketPrice = peopleNumber * 249.99;
+        }
+
+        totalExpenses = ticketPrice + transportBudget;
+        difference = Math.abs(budget - totalExpenses);
+
+        if (budget >= totalExpenses) {
+            System.out.printf("Yes! You have %.2f leva left.", difference);
+        } else {
+            System.out.printf("Not enough money! You need %.2f leva.", difference);
+        }
+
+
+    }
+}
+
