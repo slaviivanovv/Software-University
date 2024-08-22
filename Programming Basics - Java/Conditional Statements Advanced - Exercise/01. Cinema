@@ -1,0 +1,32 @@
+package ConditionalStatementsAdvancedExercises;
+
+import java.util.Scanner;
+
+public class CinemaTickets_01 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String type = scanner.nextLine();
+        int redove = Integer.parseInt(scanner.nextLine());
+        int koloni = Integer.parseInt(scanner.nextLine());
+        double income = 0.0;
+
+        switch (type){
+            case "Premiere":
+                income = (redove * koloni) * 12;
+                break;
+            case "Normal":
+                income = (redove * koloni) * 7.50;
+                break;
+            default:
+                income = (redove * koloni) * 5.00;
+                break;
+        }
+
+        System.out.printf("%.2f leva", income);
+
+
+
+    }
+}
+
