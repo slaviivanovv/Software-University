@@ -1,0 +1,63 @@
+package ForLoopAdditionalExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int degrees = Integer.parseInt(scanner.nextLine());
+        String timeOfDay = scanner.nextLine();
+
+        String Outfit = "";
+        String Shoes = "";
+
+
+        if (degrees >= 10 && degrees <= 18){
+            switch (timeOfDay){
+                case "Morning":
+                    Outfit = "Sweatshirt";
+                    Shoes = "Sneakers";
+                    break;
+                case "Afternoon":
+                case "Evening":
+                    Outfit = "Shirt";
+                    Shoes = "Moccasins";
+                    break;
+            }
+        } else if ( degrees > 18 && degrees <= 24){
+            switch (timeOfDay){
+                case "Morning", "Evening":
+                    Outfit = "Shirt";
+                    Shoes = "Moccasins";
+                    break;
+                case "Afternoon":
+                    Outfit = "T-Shirt";
+                    Shoes = "Sandals";
+                    break;
+            }
+        } else if (degrees >= 25){
+            switch (timeOfDay){
+                case "Morning":
+                    Outfit = "T-Shirt";
+                    Shoes = "Sandals";
+                    break;
+                case "Afternoon":
+                    Outfit = "Swim Suit";
+                    Shoes = "Barefoot";
+                    break;
+                case "Evening":
+                    Outfit = "Shirt";
+                    Shoes = "Moccasins";
+                    break;
+            }
+        }
+
+        System.out.printf("It's %d degrees, get your %s and %s.",degrees, Outfit, Shoes);
+
+
+    }
+}
+
+
+
