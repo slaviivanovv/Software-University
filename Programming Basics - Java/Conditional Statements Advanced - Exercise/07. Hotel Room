@@ -1,0 +1,54 @@
+package ConditionalStatementsAdvancedExercises;
+
+import java.util.Scanner;
+
+public class HotelRoom_07 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String month = scanner.nextLine();
+        int nightsStand = Integer.parseInt(scanner.nextLine());
+        double studioPrice = 0;
+        double apartmentPrice = 0;
+        double totalPriceStudio = 0;
+        double totalPriceApartment = 0;
+
+
+        switch (month) {
+            case "May", "October":
+                studioPrice = 50;
+                apartmentPrice = 65;
+                if (nightsStand > 7 && nightsStand <= 14) {
+                    studioPrice = studioPrice - (studioPrice * 0.05);
+                } else if (nightsStand > 14) {
+                    studioPrice = studioPrice - (studioPrice * 0.30);
+                }
+                break;
+            case "June", "September":
+                studioPrice = 75.20;
+                apartmentPrice = 68.70;
+                if (nightsStand > 14) {
+                    studioPrice = studioPrice - (studioPrice * 0.20);
+                }
+                break;
+            case "July", "August":
+                studioPrice = 76;
+                apartmentPrice = 77;
+                break;
+
+        }
+
+        if (nightsStand > 14) {
+            apartmentPrice = apartmentPrice - (apartmentPrice * 0.10);
+        }
+
+        totalPriceStudio = studioPrice * nightsStand;
+        totalPriceApartment = apartmentPrice * nightsStand;
+
+
+        System.out.printf("Apartment: %.2f lv.\n", totalPriceApartment);
+        System.out.printf("Studio: %.2f lv.", totalPriceStudio);
+
+
+    }
+}
