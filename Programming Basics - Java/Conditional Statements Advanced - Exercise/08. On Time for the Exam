@@ -1,0 +1,44 @@
+package ConditionalStatementsAdvancedExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        int examHour = Integer.parseInt(scanner.nextLine());
+        int examMinute = Integer.parseInt(scanner.nextLine());
+        int arrivalHour = Integer.parseInt(scanner.nextLine());
+        int arrivalMinute = Integer.parseInt(scanner.nextLine());
+
+        int examCombinedTime = (examHour * 60) + examMinute;
+        int arrivalCombinedTime = (arrivalHour * 60) + arrivalMinute;
+
+        int diff = Math.abs(arrivalCombinedTime - examCombinedTime);
+
+        int hour = diff / 60;
+        int minutes = diff % 60;
+
+        if (examCombinedTime == arrivalCombinedTime) {
+            System.out.println("On time");
+        } else if (examCombinedTime > arrivalCombinedTime && diff <= 30){
+            System.out.printf("On time\n%d minutes before the start", diff);
+        } else if (examCombinedTime > arrivalCombinedTime && diff > 30 && diff <= 59) {
+            System.out.printf("Early\n%d minutes before the start", diff);
+        } else if (examCombinedTime > arrivalCombinedTime && diff > 59 && minutes > 9) {
+            System.out.printf("Early\n%d:%d hours before the start", hour, minutes);
+        } if ( examCombinedTime > arrivalCombinedTime && diff > 30 && diff > 59 && minutes <= 9){
+            System.out.printf("Early\n%d:0%d hours before the start", hour, minutes);
+        } else if (examCombinedTime < arrivalCombinedTime && diff <= 30){
+            System.out.printf("Late\n%d minutes after the start", diff);
+        } else if (examCombinedTime < arrivalCombinedTime && diff > 30 && diff <= 59){
+            System.out.printf("Late\n%d minutes after the start", diff);
+        } else if (examCombinedTime < arrivalCombinedTime && diff > 59 ) {
+            System.out.printf("Late\n%d:%02d hours after the start", hour, minutes);
+        }
+
+
+    }
+
+}
