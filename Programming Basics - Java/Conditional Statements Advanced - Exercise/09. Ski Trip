@@ -1,0 +1,59 @@
+package ConditionalStatementsAdvancedExercises;
+
+import java.util.Scanner;
+
+public class SkiTrip_09 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int daysToStay = Integer.parseInt(scanner.nextLine());
+        String typeOfRoom = scanner.nextLine();
+        String review = scanner.nextLine();
+        double roomPrice = 0;
+        double roomDiscountPrice = 0;
+
+
+        int nightsStaying = daysToStay - 1;
+
+        switch (typeOfRoom) {
+            case "room for one person":
+                roomDiscountPrice = nightsStaying * 18;
+                break;
+            case "apartment":
+                if (daysToStay < 10) {
+                    roomPrice = nightsStaying * 25;
+                    roomDiscountPrice = roomPrice - (roomPrice * 0.30);
+                } else if (daysToStay <= 15){
+                    roomPrice = nightsStaying * 25;
+                    roomDiscountPrice = roomPrice - (roomPrice * 0.35);
+                } else {
+                    roomPrice = nightsStaying * 25;
+                    roomDiscountPrice = roomPrice - (roomPrice * 0.50);
+                }
+                break;
+
+            case "president apartment":
+                if (daysToStay < 10) {
+                    roomPrice = nightsStaying * 35;
+                    roomDiscountPrice = roomPrice - (roomPrice * 0.10);
+                } else if (daysToStay <= 15){
+                    roomPrice = nightsStaying * 35;
+                    roomDiscountPrice = roomPrice - (roomPrice * 0.15);
+                } else {
+                    roomPrice = nightsStaying * 35;
+                    roomDiscountPrice = roomPrice - (roomPrice * 0.20);
+                }
+                break;
+
+        }
+
+        if (review.equals("positive")){
+            roomDiscountPrice = roomDiscountPrice + (roomDiscountPrice * 0.25);
+        } else if (review.equals("negative")){
+            roomDiscountPrice = roomDiscountPrice - (roomDiscountPrice * 0.10);
+        }
+
+        System.out.printf("%.2f", roomDiscountPrice);
+
+    }
+}
