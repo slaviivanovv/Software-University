@@ -1,0 +1,39 @@
+package ForLoopExercise;
+
+import java.util.Scanner;
+
+import static java.awt.SystemColor.text;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        String actor = scanner.nextLine();
+        double academyPoints = Double.parseDouble(scanner.nextLine());
+        int n = Integer.parseInt(scanner.nextLine());
+
+
+        double allPoints = academyPoints;
+        for (int i = 1; i <= n; i++) {
+            
+            String jury = scanner.nextLine();
+            double points = Double.parseDouble(scanner.nextLine());
+
+            int lenght = jury.length();
+            double juryPoints = lenght * points / 2;
+            allPoints = allPoints + juryPoints;
+
+            if (allPoints > 1250.5) {
+                break;
+            }
+        }
+
+        if (allPoints > 1250.5) {
+            System.out.printf("Congratulations, %s got a nominee for leading role with %.1f!", actor, allPoints);
+        } else {
+            System.out.printf("Sorry, %s you need %.1f more!", actor, 1250.5 - allPoints);
+        }
+        
+    }
+}
