@@ -1,0 +1,43 @@
+package ForLoopAdditionalExercises;
+
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        double tonBys = 0;
+        double tonKamion = 0;
+        double tonVlak = 0;
+
+        for (int i = 1; i <= n; i++) {
+            int tonaj = Integer.parseInt(scanner.nextLine());
+
+            if (tonaj <= 3) {
+                tonBys = tonBys + tonaj;
+            } else if (tonaj <= 11) {
+                tonKamion = tonKamion + tonaj;
+            } else {
+                tonVlak = tonVlak + tonaj;
+            }
+
+        }
+
+        double allTons = tonBys + tonKamion + tonVlak;
+        double averagePerTon = (tonBys * 200 + tonKamion * 175 + tonVlak * 120) / allTons;
+        double percentBys = tonBys / allTons * 100;
+        double percentKamion = tonKamion / allTons * 100;
+        double percentVlak = tonVlak / allTons * 100;
+
+        System.out.printf("%.2f\n", averagePerTon);
+        System.out.printf("%.2f%%\n", percentBys);
+        System.out.printf("%.2f%%\n", percentKamion);
+        System.out.printf("%.2f%%", percentVlak);
+
+
+    }
+}
+
+
