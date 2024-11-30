@@ -1,0 +1,50 @@
+package ForLoopAdditionalExercises;
+
+
+import java.util.Scanner;
+
+public class Grades_04 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        double dvoiki = 0;
+        double troiki = 0;
+        double chetvorki = 0;
+        double otlichnici = 0;
+        double degreee = 0;
+
+        for (int i = 1; i <= n; i++) {
+            double degree = Double.parseDouble(scanner.nextLine());
+
+            if (degree >= 5) {
+                degreee = degreee + degree;
+                otlichnici++;
+            } else if (degree >= 4) {
+                degreee = degreee + degree;
+                chetvorki++;
+            } else if (degree >= 3) {
+                degreee = degreee + degree;
+                troiki++;
+            } else {
+                degreee = degreee + degree;
+                dvoiki++;
+            }
+
+        }
+
+        double procentDvoiki = (dvoiki / n) * 100;
+        double procentTroiki = (troiki / n) * 100;
+        double procentChetvorki = (chetvorki / n) * 100;
+        double procentOtlichnici = (otlichnici / n) * 100;
+
+        double avarageDegree = degreee / n;
+        System.out.printf("Top students: %.2f%%\n", procentOtlichnici);
+        System.out.printf("Between 4.00 and 4.99: %.2f%%\n", procentChetvorki);
+        System.out.printf("Between 3.00 and 3.99: %.2f%%\n", procentTroiki);
+        System.out.printf("Fail: %.2f%%\n", procentDvoiki);
+        System.out.printf("Average: %.2f", avarageDegree);
+
+    }
+}
