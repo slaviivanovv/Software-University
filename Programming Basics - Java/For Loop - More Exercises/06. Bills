@@ -1,0 +1,39 @@
+package ForLoopAdditionalExercises;
+
+
+import java.util.Scanner;
+
+public class Bills_06 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        double allMonthsElectricityBill = 0;
+        double allMonthsWaterBill = 0;
+        double allMonthsInternetBill = 0;
+        double otherAllMonthsBill = 0;
+        double allMonthsBillNoOthers = 0;
+        double totalAllMonthsOtherBill = 0;
+
+        for (int i = 1; i <= n; i++) {
+            double electricity = Double.parseDouble(scanner.nextLine());
+
+            allMonthsElectricityBill += electricity;
+            allMonthsWaterBill = 20 * n;
+            allMonthsInternetBill = 15 * n;
+            allMonthsBillNoOthers = allMonthsElectricityBill + allMonthsWaterBill + allMonthsInternetBill;
+            totalAllMonthsOtherBill = allMonthsBillNoOthers + (allMonthsBillNoOthers * 0.20);
+
+        }
+
+        double averageTotalMonthlyBill = (allMonthsElectricityBill + allMonthsWaterBill + allMonthsInternetBill + totalAllMonthsOtherBill) / n;
+
+        System.out.printf("Electricity: %.2f lv\n", allMonthsElectricityBill);
+        System.out.printf("Water: %.2f lv\n", allMonthsWaterBill);
+        System.out.printf("Internet: %.2f lv\n", allMonthsInternetBill);
+        System.out.printf("Other: %.2f lv\n", totalAllMonthsOtherBill);
+        System.out.printf("Average: %.2f lv", averageTotalMonthlyBill);
+
+    }
+}
