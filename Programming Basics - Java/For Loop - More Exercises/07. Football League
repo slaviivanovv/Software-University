@@ -1,0 +1,51 @@
+package ForLoopAdditionalExercises;
+
+import java.util.Scanner;
+
+public class FootballLeague_07 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int stadiumCapacity = Integer.parseInt(scanner.nextLine());
+        int allFans = Integer.parseInt(scanner.nextLine());
+
+        double ASectorFans = 0;
+        double BSectorFans = 0;
+        double VSectorFans = 0;
+        double GSectorFans = 0;
+
+        double ASectorTotalFansPercent = 0;
+        double BSectorTotalFansPercent = 0;
+        double VSectorTotalFansPercent = 0;
+        double GSectorTotalFansPercent = 0;
+
+
+        for (int i = 1; i <= allFans; i++) {
+            String sector = scanner.nextLine();
+
+            if (sector.equals("A")) {
+                ASectorFans++;
+            } else if (sector.equals("B")) {
+                BSectorFans++;
+            } else if (sector.equals("V")) {
+                VSectorFans++;
+            } else if (sector.equals("G")) {
+                GSectorFans++;
+            }
+
+        }
+
+        ASectorTotalFansPercent = (ASectorFans / allFans) * 100;
+        BSectorTotalFansPercent = (BSectorFans / allFans) * 100;
+        VSectorTotalFansPercent = (VSectorFans / allFans) * 100;
+        GSectorTotalFansPercent = (GSectorFans / allFans) * 100;
+        double totalPercentForAllFans = (allFans * 1.0 / stadiumCapacity) * 100;
+
+        System.out.printf("%.2f%%\n", ASectorTotalFansPercent);
+        System.out.printf("%.2f%%\n", BSectorTotalFansPercent);
+        System.out.printf("%.2f%%\n", VSectorTotalFansPercent);
+        System.out.printf("%.2f%%\n", GSectorTotalFansPercent);
+        System.out.printf("%.2f%%", totalPercentForAllFans);
+
+    }
+}
