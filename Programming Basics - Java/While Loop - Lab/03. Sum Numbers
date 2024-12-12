@@ -1,0 +1,21 @@
+package WhileLoopLab;
+
+import java.util.Scanner;
+
+public class SumNumbers_03 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int initialNum = Integer.parseInt(scanner.nextLine());
+        int restNum = Integer.parseInt(scanner.nextLine());
+        int newNum = 0;
+
+        while (restNum < initialNum) {
+            newNum = Integer.parseInt(scanner.nextLine());
+            restNum += newNum;
+
+        }
+
+        System.out.print(restNum);
+    }
+}
