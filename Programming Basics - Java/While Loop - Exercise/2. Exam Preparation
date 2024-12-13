@@ -1,0 +1,41 @@
+package WhileLoopExercise;
+
+import java.util.Scanner;
+
+public class ExamPreparation_02 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int amountUndesiredGrades = Integer.parseInt(scanner.nextLine());
+        int undesiredGrades = 0;
+        int problemsSolved = 0;
+        double totalGrades = 0;
+        String lastTaskName = "";
+
+        String taskName = scanner.nextLine();
+
+        while (!taskName.equals("Enough")) {
+            lastTaskName = taskName;
+            problemsSolved++;
+
+            int grade = Integer.parseInt(scanner.nextLine());
+            totalGrades += grade;
+
+            if (grade <= 4) {
+                undesiredGrades++;
+            }
+
+            if (undesiredGrades >= amountUndesiredGrades) {
+                System.out.printf("You need a break, %d poor grades.", undesiredGrades);
+                return;
+            }
+
+            taskName = scanner.nextLine();
+        }
+
+        double averageGrade = totalGrades / problemsSolved;
+        System.out.printf("Average score: %.2f\n", averageGrade);
+        System.out.printf("Number of problems: %d\n", problemsSolved);
+        System.out.printf("Last problem: %s", lastTaskName);
+    }
+}
