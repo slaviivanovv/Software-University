@@ -1,0 +1,32 @@
+package WhileLoopExercise;
+
+import java.util.Scanner;
+
+public class Cacke_06 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int widthCM = Integer.parseInt(scanner.nextLine());
+        int lengthCM = Integer.parseInt(scanner.nextLine());
+
+        int totalCake = widthCM * lengthCM;
+
+        String pieces = scanner.nextLine();
+
+        while (!pieces.equals("STOP")){
+
+            int takenPieces = Integer.parseInt(pieces);
+            totalCake -= takenPieces;
+
+            if (totalCake < 0){
+                int neededMore = Math.abs(totalCake);
+                System.out.printf("No more cake left! You need %d pieces more.", neededMore);
+                return;
+            }
+
+            pieces = scanner.nextLine();
+        }
+
+        System.out.printf("%d pieces are left.", totalCake);
+    }
+}
