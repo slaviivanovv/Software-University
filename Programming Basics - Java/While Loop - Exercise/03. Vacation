@@ -1,0 +1,43 @@
+package WhileLoopExercise;
+
+import java.util.Scanner;
+
+public class Vacation_03 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        double vacationSum = Double.parseDouble(scanner.nextLine());
+        double currentSum = Double.parseDouble(scanner.nextLine());
+        int daysCounter = 0;
+        int spendCounter = 0;
+
+        while (currentSum < vacationSum){
+
+            String action = scanner.nextLine();
+            double savedMoney = Double.parseDouble(scanner.nextLine());
+            daysCounter++;
+
+            if (action.equals("spend")){
+                spendCounter++;
+                currentSum -= savedMoney;
+                if (currentSum < 0){
+                    currentSum = 0;
+                }
+            } else if (action.equals("save")){
+                currentSum += savedMoney;
+                spendCounter = 0;
+            }
+
+            if (spendCounter == 5 ){
+                System.out.println("You can't save the money.");
+                System.out.printf("%d", daysCounter);
+                return;
+            }
+
+        }
+
+        System.out.printf("You saved the money for %d days.", daysCounter);
+
+    }
+}
