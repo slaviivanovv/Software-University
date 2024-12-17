@@ -1,0 +1,36 @@
+package WhileLoopExercise;
+
+import java.util.Scanner;
+
+public class Moving_07 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int width = Integer.parseInt(scanner.nextLine());
+        int length = Integer.parseInt(scanner.nextLine());
+        int height = Integer.parseInt(scanner.nextLine());
+
+        int totalSpace = width * length * height;
+
+        String input = scanner.nextLine();
+
+        while (!input.equals("Done")){
+
+            int baggage = Integer.parseInt(input);
+            totalSpace -= baggage;
+
+            if (totalSpace < 0){
+                totalSpace = Math.abs(totalSpace);
+                System.out.printf("No more free space! You need %d Cubic meters more.",totalSpace);
+                return;
+            }
+
+
+            input = scanner.nextLine();
+        }
+
+        System.out.printf("%d Cubic meters left.", totalSpace);
+
+
+    }
+}
