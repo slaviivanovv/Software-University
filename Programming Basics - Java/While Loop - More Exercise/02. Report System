@@ -1,0 +1,57 @@
+package WhileLoopAdditionalExercises;
+
+import java.util.Scanner;
+
+public class ReportSystem_02 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int neededSum = Integer.parseInt(scanner.nextLine());
+        int sellCounter = 0;
+        int totalSum = 0;
+        int averageCSCounter = 0;
+        int averageCCCounter = 0;
+        int gatheredAmountInCash = 0;
+        int gatheredAmountInCC = 0;
+
+        String input = scanner.nextLine();
+
+        while (!input.equals("End")){
+            int productPrice = Integer.parseInt(input);
+            sellCounter++;
+
+            if (sellCounter % 2 != 0){
+                if (productPrice > 100){
+                    System.out.println("Error in transaction!");
+                } else {
+                    System.out.println("Product sold!");
+                    totalSum += productPrice;
+                    averageCSCounter++;
+                    gatheredAmountInCash += productPrice;
+                }
+            } else {
+                if (productPrice < 10){
+                    System.out.println("Error in transaction!");
+                } else {
+                    System.out.println("Product sold!");
+                    totalSum += productPrice;
+                    averageCCCounter++;
+                    gatheredAmountInCC += productPrice;
+                }
+            }
+
+            double averageCS = gatheredAmountInCash / (averageCSCounter * 1.0);
+            double averageCC = gatheredAmountInCC / (averageCCCounter * 1.0);
+            if (totalSum >= neededSum){
+                System.out.printf("Average CS: %.2f\n", averageCS);
+                System.out.printf("Average CC: %.2f", averageCC);
+                return;
+            }
+
+            input = scanner.nextLine();
+        }
+
+        System.out.println("Failed to collect required money for charity.");
+
+    }
+}
