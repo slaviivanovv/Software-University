@@ -1,0 +1,47 @@
+package WhileLoopAdditionalExercises;
+
+import java.util.Scanner;
+
+public class Dishwasher_01 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int bottlesCleaningAgent = Integer.parseInt(scanner.nextLine());
+        double totalCleaningAgent = bottlesCleaningAgent * 750;
+        int counter = 0;
+        double neededAgent = 0;
+        int dishes = 0;
+        int pots = 0;
+
+        String input = scanner.nextLine();
+
+        while (!input.equals("End")){
+            int cutlery = Integer.parseInt(input);
+            counter++;
+
+
+            if (counter % 3 == 0){
+                neededAgent = cutlery * 15;
+                totalCleaningAgent -= neededAgent;
+                pots += cutlery;
+            } else {
+                neededAgent = cutlery * 5;
+                totalCleaningAgent -= neededAgent;
+                dishes += cutlery;
+            }
+
+            if (totalCleaningAgent < 0){
+                double diff = Math.abs(totalCleaningAgent);
+                System.out.printf("Not enough detergent, %.0f ml. more necessary!", diff);
+                return;
+            }
+
+            input = scanner.nextLine();
+        }
+
+
+        System.out.println("Detergent was enough!");
+        System.out.printf("%d dishes and %d pots were washed.\n", dishes, pots);
+        System.out.printf("Leftover detergent %.0f ml.", totalCleaningAgent);
+    }
+}
