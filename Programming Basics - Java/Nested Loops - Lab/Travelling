@@ -1,0 +1,36 @@
+package NestedLoopsLab;
+
+
+import java.util.Scanner;
+
+public class test {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       String destination = scanner.nextLine();
+
+       double totalAmount = 0;
+
+       while (!destination.equals("End")){
+           double minBudget = Double.parseDouble(scanner.nextLine());
+
+           while (totalAmount < minBudget){
+               double savedMoney = Double.parseDouble(scanner.nextLine());
+               totalAmount += savedMoney;
+
+               if ( totalAmount >= minBudget){
+                   System.out.printf("Going to %s!\n", destination);
+                   break;
+               }
+
+           }
+
+
+           totalAmount = 0;
+           destination = scanner.nextLine();
+       }
+
+
+
+    }
+}
