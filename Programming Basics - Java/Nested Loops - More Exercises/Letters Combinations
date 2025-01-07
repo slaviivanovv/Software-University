@@ -1,0 +1,36 @@
+package NestedLoopsMoreExercises;
+
+import java.util.Scanner;
+
+public class LettersCombinations_02 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String first = scanner.nextLine();
+        char firstLetter = first.charAt(0);
+
+        String last = scanner.nextLine();
+        char lastLetter = last.charAt(0);
+
+        String dismissal = scanner.nextLine();
+        char dismiss = dismissal.charAt(0);
+
+        int count = 0;
+
+        for (char i = firstLetter; i <= lastLetter ; i++) {
+            for (char j = firstLetter; j <= lastLetter ; j++) {
+                for (char k = firstLetter; k <= lastLetter ; k++) {
+
+                    if (i != dismiss && j != dismiss && k != dismiss){
+                        count++;
+                        System.out.print("" + i + j + k + " ");
+                    }
+
+                }
+            }
+        }
+
+        System.out.print(count);
+
+    }
+}
