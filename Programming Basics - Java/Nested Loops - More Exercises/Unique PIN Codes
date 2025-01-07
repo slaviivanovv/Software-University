@@ -1,0 +1,31 @@
+package NestedLoopsMoreExercises;
+
+import java.util.Scanner;
+
+public class UniquePINCodes_01 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int maxFirstDigit = Integer.parseInt(scanner.nextLine());
+        int maxSecondDigit = Integer.parseInt(scanner.nextLine());
+        int maxThirdDigit = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 2; i <= maxFirstDigit ; i+=2) {
+
+            for (int j = 2; j <= maxSecondDigit ; j++) {
+                boolean isPrime = (j == 2 || j == 3 || j == 5 || j == 7);
+                
+
+                if (isPrime){
+                    for (int k = 2; k <= maxThirdDigit ; k+=2) {
+                        System.out.println(i + " " + j + " " + k);
+                    }
+                }
+
+            }
+            
+
+        }
+
+    }
+}
