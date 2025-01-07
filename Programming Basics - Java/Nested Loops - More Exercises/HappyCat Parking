@@ -1,0 +1,50 @@
+package NestedLoopsMoreExercises;
+
+import java.util.Scanner;
+
+public class HappyCatParking_11 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        // четен ден и нечетен час, паркингът таксува 2.50 лева
+        // всеки нечетен ден и четен час таксата е 1.25 лева, във всички останали случаи се заплаща 1 лев
+        // Таксуването става на всеки изминал час от деня
+
+        int days = Integer.parseInt(scanner.nextLine());
+        int hoursPerDay = Integer.parseInt(scanner.nextLine());
+        double totalSum = 0;
+
+        for (int i = 1; i <= days ; i++) {
+
+            double tax = 0;
+            boolean isDayOdd = i % 2 != 0;
+            boolean isDayEven = i % 2 == 0;
+
+            for (int j = 1; j <= hoursPerDay ; j++) {
+
+                boolean isHourOdd = j % 2 != 0;
+                boolean isHourEven = j % 2 == 0;
+
+                if (isDayEven && isHourOdd){
+                    tax += 2.50;
+                } else if (isDayOdd && isHourEven){
+                    tax += 1.25;
+                } else {
+                    tax += 1;
+                }
+
+                if (j == hoursPerDay){
+                    totalSum += tax;
+                    System.out.printf("Day: %d - %.2f leva\n", i, tax);
+                }
+
+
+            }
+
+        }
+
+        System.out.printf("Total: %.2f leva", totalSum);
+
+    }
+}
