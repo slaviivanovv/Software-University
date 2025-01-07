@@ -1,0 +1,61 @@
+package NestedLoopExcersises;
+
+import java.util.Scanner;
+
+public class CinemaTickets_06 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // процента на билетите за всеки тип от продадените билети
+        // колко процента от залата е запълнена за всяка една прожекция.
+
+        String movie = scanner.nextLine();
+
+        int standardTickets = 0;
+        int kidsTickets = 0;
+        int studentTickets = 0;
+        int totalSoldTickets = 0;
+
+
+        while (!movie.equals("Finish")) {
+
+            int ticketCounter = 0;
+            int availableSeats = Integer.parseInt(scanner.nextLine());
+
+            String ticket = scanner.nextLine();
+            while (!ticket.equals("End")) {
+
+                ticketCounter++;
+
+                switch (ticket) {
+                    case "standard":
+                        standardTickets++;
+                        break;
+                    case "kid":
+                        kidsTickets++;
+                        break;
+                    case "student":
+                        studentTickets++;
+                        break;
+                }
+
+                if (ticketCounter >= availableSeats) {
+                    break;
+                }
+
+                ticket = scanner.nextLine();
+            }
+
+            totalSoldTickets += ticketCounter;
+            System.out.printf("%s - %.2f%% full.\n", movie, (1.0 * ticketCounter / availableSeats) * 100);
+            movie = scanner.nextLine();
+
+        }
+
+        System.out.printf("Total tickets: %d\n", totalSoldTickets);
+        System.out.printf("%.2f%% student tickets.\n", (1.0 * studentTickets / totalSoldTickets) * 100);
+        System.out.printf("%.2f%% standard tickets.\n", (1.0 * standardTickets / totalSoldTickets) * 100);
+        System.out.printf("%.2f%% kids tickets.", (1.0 * kidsTickets / totalSoldTickets) * 100);
+
+    }
+}
