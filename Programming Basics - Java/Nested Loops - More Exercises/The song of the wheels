@@ -1,0 +1,53 @@
+package NestedLoopsMoreExercises;
+
+import java.util.Scanner;
+
+public class TheSongOfTheWheels_12 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // контролната стойност трябва да е равна на  a*b + c*d
+        // •	при намирането на а и b: a < b
+        // •	при намиране на  c и d: c > d
+
+        int m = Integer.parseInt(scanner.nextLine());
+        int counter = 0;
+        int correctPassword = 0;
+        boolean isPasswordFound = false;
+
+        for (int a = 1; a <= 9; a++) {
+            for (int b = 1; b <= 9; b++) {
+                for (int c = 1; c <= 9; c++) {
+                    for (int d = 1; d <= 9; d++) {
+
+                        boolean isALowerThanB = a < b;
+                        boolean isCBiggerThanD = c > d;
+                        boolean isCombinationCorrect = (a * b) + (c * d) == m;
+
+
+                        if (isALowerThanB && isCBiggerThanD && isCombinationCorrect) {
+                            counter++;
+                            System.out.print(a + "" + b + c + d + " ");
+                            if (counter == 4){
+                                isPasswordFound = true;
+                                correctPassword = Integer.parseInt(a + "" +  b + c + d);
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        if (isPasswordFound){
+            System.out.println();
+            System.out.printf("Password: %d", correctPassword);
+        } else if (counter < 1){
+            System.out.print("No!");
+        } else if (counter > 1){
+            System.out.println();
+            System.out.print("No!");
+        }
+
+    }
+}
