@@ -1,0 +1,70 @@
+package NestedLoopsMoreExercises;
+
+import java.util.Scanner;
+
+public class PrimePairs_13 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // първата и втората двойка цифри образуват двуцифрени прости числа
+// Крайната стойност до която трябва да се генерират двойките се определя от други 2 цифри, подадени като вход, които определят с колко крайната стойност е по-голяма от началната.
+
+        int firstPair = Integer.parseInt(scanner.nextLine());
+        int secondPair = Integer.parseInt(scanner.nextLine());
+        int firstPairMax = Integer.parseInt(scanner.nextLine());
+        int secondPairMax = Integer.parseInt(scanner.nextLine());
+
+        int firstPairToUse = 0;
+        int secondPairToUse = 0;
+
+
+
+
+
+        int firstPairRange = firstPair + firstPairMax;
+        int secondPairRange = secondPair + secondPairMax;
+
+        for (int i = firstPair; i <= firstPairRange ; i++) {
+
+            boolean isFirstPairFound = false;
+            int counter1 = 0;
+
+            for (int delitel = 1; delitel <= i ; delitel++) {
+                if (i % delitel == 0){
+                    counter1++;
+                }
+            }
+
+            if (counter1 <= 2){
+                firstPairToUse = i;
+                isFirstPairFound = true;
+            }
+
+            for (int j = secondPair; j <= secondPairRange ; j++) {
+
+                boolean isSecondPairFound = false;
+                int counter2 = 0;
+
+                for (int delitel = 1; delitel <= j ; delitel++) {
+                    if (j % delitel == 0) {
+                        counter2++;
+                    }
+                }
+
+                if (counter2 <= 2){
+                    secondPairToUse = j;
+                    isSecondPairFound = true;
+                }
+                
+
+               if (isFirstPairFound && isSecondPairFound){
+                   System.out.println(i + "" + j + " ");
+               }
+
+            }
+        }
+
+
+
+    }
+}
