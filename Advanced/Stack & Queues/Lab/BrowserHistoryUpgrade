@@ -1,0 +1,43 @@
+package StackAndQueuesLab;
+
+import java.util.ArrayDeque;
+import java.util.Scanner;
+
+public class Browser_History_Upgrade_08_02 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayDeque<String> historyStack = new ArrayDeque<>();
+        ArrayDeque<String> forwardStack = new ArrayDeque<>();
+
+        String input = scanner.nextLine();
+
+        while (!"Home".equals(input)) {
+
+            if ("back".equals(input)) {
+                if (historyStack.size() <= 1) {
+                    System.out.println("no previous URLs");
+                } else {
+                    forwardStack.offerFirst(historyStack.pollLast());
+                    String URL = historyStack.peekLast();
+                    System.out.println(URL);
+                }
+            } else if ("forward".equals(input)) {
+                if (forwardStack.isEmpty()){
+                    System.out.println("no next URLs");
+                } else {
+                    historyStack.offer(forwardStack.pollFirst());
+                    String URL = historyStack.peekLast();
+                    System.out.println(URL);
+                }
+            } else {
+                String URL = input;
+                historyStack.offer(URL);
+                forwardStack.clear();
+                System.out.println(URL);
+            }
+
+            input = scanner.nextLine();
+        }
+    }
+}
