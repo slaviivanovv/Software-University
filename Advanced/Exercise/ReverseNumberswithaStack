@@ -1,0 +1,20 @@
+package StackAndQueuesExercise;
+
+import java.util.*;
+
+
+public class Reverse_Numbers_With_A_Stack_01 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayDeque<Integer> numbersStack = new ArrayDeque<>();
+
+        Arrays.stream(scanner.nextLine().split("\\s+"))
+                .map(Integer::parseInt)
+                .forEach(numbersStack::push);
+
+        Integer[] numbersArr = numbersStack.toArray(new Integer[0]);
+        System.out.print(String.join(" ", Arrays.stream(numbersArr).map(String::valueOf).toArray(String[]::new)));
+
+    }
+}
