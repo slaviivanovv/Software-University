@@ -1,0 +1,55 @@
+package StackAndQueuesExercise;
+
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Basic_Queue_Operations_04 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int [] input = Arrays.stream(scanner.nextLine()
+                .split(" "))
+                .mapToInt(Integer::parseInt).toArray();
+
+        int size = input[0];
+
+        ArrayDeque<Integer> queue = new ArrayDeque<>(size);
+
+        addingElementsToQueue(input, queue, scanner);
+        removingElementsInQueue(input, queue);
+
+        int element = input[2];
+
+        if(elementPersists(element, queue)){
+            System.out.println("true");
+        } else {
+            if (queue.isEmpty()) {
+                System.out.println(0);
+            } else {
+                System.out.println(queue.stream().sorted().toList().getFirst());
+            }
+        }
+
+
+    }
+
+    private static void addingElementsToQueue(int[] input, ArrayDeque<Integer> queue, Scanner scanner) {
+        for (int i = 0; i < input[0]; i++) {
+            queue.offer(scanner.nextInt());
+        }
+    }
+
+    private static void removingElementsInQueue(int[] input, ArrayDeque<Integer> queue) {
+        for (int i = 0; i < input[1]; i++) {
+            queue.poll();
+        }
+    }
+
+    public static boolean elementPersists(int element, ArrayDeque<Integer> queue) {
+        if (queue.contains(element)) {
+            return true;
+        }
+        return false;
+    }
+}
