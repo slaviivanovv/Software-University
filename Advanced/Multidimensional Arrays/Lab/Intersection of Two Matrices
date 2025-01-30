@@ -1,0 +1,55 @@
+package MultidimentionalArraysLab;
+
+import java.util.Scanner;
+
+public class Intersection_Of_Two_Matrices_03 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int dimentions = Integer.parseInt(scanner.nextLine());
+        int cols = Integer.parseInt(scanner.nextLine());
+
+        String[][] firstMatrix = new String[dimentions][cols];
+        fillMatrix(firstMatrix, scanner);
+
+        String[][] secondMatrix = new String[dimentions][cols];
+        fillMatrix(secondMatrix, scanner);
+
+        String[][] thirdMatrix = new String[dimentions][cols];
+        fillThirdMatrix(firstMatrix, secondMatrix, thirdMatrix, scanner);
+
+        for (int i = 0; i < thirdMatrix.length; i++) {
+            String[] array = thirdMatrix[i];
+            System.out.println(String.join(" ", array));
+        }
+
+    }
+
+    private static String[][] fillThirdMatrix (String[][] firstMatrix, String[][] secondMatrix, String[][] thirdMatrix, Scanner scanner) {
+        for (int row = 0; row < firstMatrix.length; row++) {
+            for (int col = 0; col < firstMatrix[row].length; col++) {
+
+                if (firstMatrix[row][col].equals(secondMatrix[row][col])){
+                    thirdMatrix[row][col] = firstMatrix[row][col];
+                } else {
+                    thirdMatrix[row][col] = "*";
+                }
+
+            }
+        }
+        return thirdMatrix;
+    }
+
+    private static String[][] fillMatrix(String[][] firstMatrix, Scanner scanner) {
+        for (int i = 0; i < firstMatrix.length; i++) {
+            String[] arr = fillArray(scanner);
+            firstMatrix[i] = arr;
+        }
+        return firstMatrix;
+    }
+
+    public static String[] fillArray(Scanner scanner) {
+        return scanner.nextLine().split("\\s+");
+
+    }
+}
