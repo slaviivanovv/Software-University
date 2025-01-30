@@ -1,0 +1,53 @@
+package MultidimentionalArraysLab;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import static java.util.Arrays.stream;
+
+public class Positions_Of_02 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] dimention = fillArray(scanner);
+
+        int rows = dimention[0];
+        int[][] matrix = new int[rows][];
+
+        for (int i = 0; i < rows; i++) {
+            int[] arr = fillArray(scanner);
+
+            matrix[i] = arr;
+        }
+
+        int number = Integer.parseInt(scanner.nextLine());
+        List<String> output = new ArrayList<>();
+
+
+        for (int i = 0; i < matrix.length; i++) {
+            int[] arr = matrix[i];
+
+            for (int j = 0; j < arr.length; j++) {
+
+                if (arr[j] == number) {
+                    output.add(i + " " + j);
+                }
+            }
+        }
+
+
+        if (output.isEmpty()) {
+            output.add("not found");
+        }
+
+        System.out.println(String.join(System.lineSeparator(), output));
+
+
+    }
+
+    public static int[] fillArray(Scanner scanner) {
+        return stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+    }
+}
