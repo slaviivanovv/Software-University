@@ -1,0 +1,53 @@
+package MultidimentionalArraysLab;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+import static java.util.Arrays.stream;
+
+public class Compare_Matrices_01 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[][] firstMatrix = fillMatrix(scanner);
+        int[][] secondMatrix = fillMatrix(scanner);
+
+        boolean areEqual = true;
+        int i = 0;
+
+        if (firstMatrix.length == secondMatrix.length) {
+            while (areEqual && i < firstMatrix.length) {
+                    int[] firstArray = firstMatrix[i];
+                    int[] secondArray = secondMatrix[i];
+
+                    if (!Arrays.equals(firstArray, secondArray)) {
+                        areEqual = false;
+                    }
+
+                    i++;
+            }
+        } else {
+            areEqual = false;
+        }
+
+
+        String output = areEqual ? "equal" : "not equal";
+        System.out.println(output);
+    }
+
+    public static int[] fillArray(Scanner scanner) {
+        return Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+    }
+
+    public static int[][] fillMatrix(Scanner scanner) {
+        int[] dimension = fillArray(scanner);
+        int[][] matrix = new int[dimension[0]][0];
+
+        for (int i = 0; i < matrix.length; i++) {
+            int[] data = fillArray(scanner);
+            matrix[i] = data;
+        }
+
+        return matrix;
+    }
+}
