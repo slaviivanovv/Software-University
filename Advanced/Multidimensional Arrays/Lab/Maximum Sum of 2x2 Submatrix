@@ -1,0 +1,66 @@
+package MultidimentionalArraysLab;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Maximum_Sum_Of_2X2_Submatrix_05 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] dimentions = fillArray(scanner);
+
+        int rows = dimentions[0];
+        int cols = dimentions[1];
+
+        int[][] matrix = new int[rows][cols];
+        matrix = fillMatrix(scanner, matrix);
+
+        int maxValue = Integer.MIN_VALUE;
+        List<String> pairs = new ArrayList<>(Arrays.asList("Null", "Null"));
+
+
+
+        for (int i = 0; i < matrix.length - 1; i++) {
+            int[] array = matrix[i];
+
+            for (int j = 0; j < array.length - 1; j++) {
+                int topLeft = matrix[i][j];
+                int topRight = matrix[i][j + 1];
+                int bottomLeft = matrix[i + 1][j];
+                int bottomRight = matrix[i + 1][j + 1];
+
+                int sum = topLeft + topRight + bottomLeft + bottomRight;
+
+                if (sum > maxValue) {
+                    maxValue = sum;
+                    pairs.set(0, topLeft + " " + topRight);
+                    pairs.set(1, bottomLeft + " " + bottomRight);
+                }
+            }
+        }
+
+        printOutput(pairs, maxValue);
+    }
+
+    public static void printOutput(List<String> pairs, int maxValue) {
+        System.out.println(String.join(System.lineSeparator(), pairs));
+        System.out.println(maxValue);
+    }
+
+    public static int[][] fillMatrix(Scanner scanner, int matrix[][]) {
+        for (int i = 0; i < matrix.length; i++) {
+            int[] arr = fillArray(scanner);
+            matrix[i] = arr;
+        }
+        return matrix;
+    }
+
+    public static int[] fillArray(Scanner scanner) {
+        return Arrays.stream(scanner.nextLine().split(", "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+    }
+
+}
