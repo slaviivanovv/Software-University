@@ -1,0 +1,95 @@
+package tanks;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Terrain {
+//TODO - implement constructor and all the methods described in the problem description
+
+    private String type;
+    private List<Tank> tanks;
+    private int area;
+
+    public Terrain(String type, int area) {
+        this.type = type;
+        this.tanks = new ArrayList<>();
+        this.area = area;
+    }
+
+    public String addTank(Tank tank) {
+
+        String output;
+
+        for (Tank currentTank : tanks) {
+            if (currentTank.getBrand().equals(tank.getBrand())
+                    && currentTank.getModel().equals(tank.getModel())) {
+                output = String.format("Tank with this brand and model already exists!");
+                return output;
+            }
+        }
+
+        if (this.type.equals("Swamp") && tank.getWeight() > 14000) {
+            output = String.format("This %s is too heavy for this terrain!", tank.getBrand());
+            return output;
+        } else {
+            this.tanks.add(tank);
+            output = String.format("Tank %s %s added.", tank.getBrand(), tank.getModel());
+            return output;
+        }
+
+    }
+
+    public boolean removeTank(String brand, String model) {
+        return tanks.removeIf(tank -> tank.getBrand().equals(brand) && tank.getModel().equals(model));
+    }
+
+    public String getTanksByBarrelCaliberMoreThan(int barrelCaliber) {
+        String output;
+        List<Tank> tanksByBarrelCaliber = tanks.stream().filter(tank -> tank.getBarrelCaliber() > barrelCaliber).toList();
+
+        if (tanksByBarrelCaliber.isEmpty()) {
+            return output = "There are no tanks with the specified caliber.";
+        } else {
+            return output = String.format("Tanks with caliber more than %dmm: ", barrelCaliber)
+                    + String.join(", ", tanksByBarrelCaliber.stream().map(Tank::getBrand).toList());
+        }
+
+    }
+
+    public Tank getTankByBrandAndModel(String brand, String model) {
+        return tanks.stream().filter(tank -> tank.getBrand().equals(brand) && tank.getModel().equals(model)).findFirst().orElse(null);
+    }
+
+    public String getTheMostArmoredTank() {
+        String output;
+        Tank tank = Collections.max(tanks, Comparator.comparingInt(Tank::getArmor));
+        return output = String.format("%s %s is the most armored tank with %dmm. armor thickness.", tank.getBrand(), tank.getModel(), tank.getArmor());
+    }
+
+    public int getCount() {
+        return tanks.size();
+    }
+
+    public String getStatistics() {
+        StringBuilder sb = new StringBuilder();
+        String terrainType = this.type;
+
+        if (tanks.isEmpty()) {
+            return sb.append(String.format("There are no tanks in the %s.", terrainType.toLowerCase())).toString();
+        } else {
+            String output = String.format("Tanks located in the %s:", terrainType.toLowerCase());
+            sb.append(output).append(System.lineSeparator());
+
+            for (Tank tank : tanks) {
+                sb.append(String.format("-- %s %s%n", tank.getBrand(), tank.getModel()));
+            }
+
+            return sb.toString().trim();
+        }
+
+    }
+
+
+}
