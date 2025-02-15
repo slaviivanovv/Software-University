@@ -1,0 +1,69 @@
+package sharkHaunt;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Basin {
+
+    private String name;
+    private int capacity;
+    private List<Shark> sharks;
+
+    public Basin(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+        this.sharks = new ArrayList<>();
+    }
+
+    public String addShark(Shark shark) {
+
+        if (this.capacity > 0) {
+            this.capacity--;
+            this.sharks.add(shark);
+            return null;
+        } else {
+            return "This basin is at full capacity!";
+        }
+
+    }
+
+    public boolean removeShark(String kind) {
+        return this.sharks.removeIf(shark -> shark.getKind().equals(kind));
+    }
+
+    public Shark getLargestShark(){
+        Shark shark = Collections.max(this.sharks, Comparator.comparing(Shark::getLength));
+        return shark;
+    }
+
+    public Shark getShark(String kind){
+        return this.sharks.stream().filter(shark -> shark.getKind().equals(kind)).findFirst().orElse(null);
+    }
+
+    public int getCount(){
+        return this.sharks.size();
+    }
+
+    public int getAverageLength(){
+        if (this.sharks.isEmpty()) {
+            return 0;
+        }
+
+        return this.sharks.stream().mapToInt(Shark::getLength).sum() / this.sharks.size();
+    }
+
+    public String report(){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(String.format("Sharks in %s:", this.name)).append(System.lineSeparator());
+        this.sharks.forEach(shark -> sb.append(shark.toString()).append(System.lineSeparator()));
+
+        return sb.toString().trim();
+    }
+
+
+
+
+}
