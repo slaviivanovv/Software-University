@@ -1,0 +1,26 @@
+package DataTypesAndVariablesLab;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class ExactSumOfRealNumbers_03 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        byte cycleRotations = Byte.parseByte(scanner.nextLine());
+        BigDecimal totalSum = new BigDecimal(0);
+
+        for (int i = 1; i <= cycleRotations ; i++) {
+
+            BigDecimal n = new BigDecimal(scanner.nextLine());
+
+            totalSum = n.add(totalSum);
+
+        }
+
+        System.out.print(totalSum);
+
+
+    }
+}
